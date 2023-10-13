@@ -14,6 +14,19 @@ export default function App() {
     setFiles(filesArray)
   }
 
+  const handleDrop = (e: any) => {
+    e.preventDefault();
+    
+    const selectedFiles: any = e.dataTransfer.files
+    const filesArray: any = Array.from(selectedFiles)
+
+    setFiles(filesArray)
+  };
+
+  const handleDragOver = (e: any) => {
+    e.preventDefault();
+  };
+
   const deleteFile = (index: number) => {
     const newFiles: any = [...files]
     newFiles.splice(index, 1)
@@ -34,7 +47,7 @@ export default function App() {
             </h2>
           </div>
           <div className="mt-4 p-4">
-            <div className="h-60">
+            <div className="h-60" onDrop={handleDrop} onDragOver={handleDragOver}>
               <input onChange={handleFiles} className="hidden" type="file" id="file" multiple={true} />
               <label className="text-gray-500 font-medium text-sm cursor-pointer h-full w-full flex flex-col gap-y-4 items-center justify-center border-4 border-dotted" htmlFor="file"><MdFileUpload className="text-4xl" /> DOSYA YÜKLEMEK İÇİN SÜRÜKLE</label>
             </div>
