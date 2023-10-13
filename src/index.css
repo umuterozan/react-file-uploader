@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    #6ECB99,
+    #6ECB99 5px,
+    #70B690 5px,
+    #70B690 10px
+  );
+}
